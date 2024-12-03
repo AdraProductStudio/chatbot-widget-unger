@@ -18,7 +18,7 @@ const Login = () => {
                     src={Image.companyLogoBlue}
                     alt="modelrocket-logo"
                   />
-                  <p className='text-secondary fw-bold mt-3'>Customer Onboarding</p>
+                  <p className='text-secondary fw-bold mt-3'>Sandbox</p>
                   <h6 className='text-center text-primary fw-bold'>Login</h6>
                   <hr className='text-secondary mt-2 mb-4' />
                 </div>
