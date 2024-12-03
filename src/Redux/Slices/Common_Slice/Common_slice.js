@@ -216,43 +216,27 @@ const commonSlice = createSlice({
 
         //api 
         loginRequest(state, actions) {
-            if (Cookies.get('client_id')) Cookies.remove('client_id')
-            if (Cookies.get('service_id')) Cookies.remove('service_id')
-            if (Cookies.get("pgs")) Cookies.remove("pgs")
 
             return {
                 ...state,
                 buttonSpinner: true,
-                token: null,
-                client_id: '',
-                service_id: '',
-                selected_service_progress: ''
+                token: null
             }
         },
         loginResponse(state, action) {
-            if (action.payload?.data?.access_token) Cookies.set("token", action.payload?.data?.access_token)
-            if (action.payload?.data?.user_id) Cookies.set("user_id", action.payload?.data?.user_id)
-            if (action.payload?.data?.role) Cookies.set("role", action.payload?.data?.role)
-            if (action.payload?.data?.client_id) Cookies.set('client_id', action.payload?.data?.client_id)
-
+            if (action.payload) Cookies.set("token", action.payload)
             return {
                 ...state,
                 buttonSpinner: false,
                 eyeOpen: !state.eyeOpen,
-                token: action.payload?.data?.access_token,
-                user_id: action.payload?.data?.user_id,
-                role: action.payload?.data?.role,
-                client_id: action.payload?.data?.client_id || ''
+                token: action.payload
             }
         },
         updateFailure(state, action) {
             return {
                 ...state,
                 Err: action.payload,
-                buttonSpinner: false,
-                usernamee: "",
-                passwordd: ""
-
+                buttonSpinner: false
             }
         },
 

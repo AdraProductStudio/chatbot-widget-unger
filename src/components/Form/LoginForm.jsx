@@ -9,6 +9,7 @@ import { useCustomNavigate, useDispatch } from '../CustomHooks';
 import SpinnerComponent from '../Spinner/Spinner';
 import { handleEyeFunction, handleLogin, handleLoginCredentials, handleResetAlMenus, handleValidation } from '../../Redux/Actions/Common_actions/Common_action';
 import ButtonComponent from '../Button/Button';
+import { loginRequest, loginResponse, updateFailure, updateToken } from '../../Redux/Slices/Common_Slice/Common_slice';
 
 const LoginForm = () => {
     const { usernamee, passwordd, eyeOpen, buttonSpinner, validated, token, user_id, role } = useSelector((state) => state.commonState);
@@ -23,10 +24,21 @@ const LoginForm = () => {
 
     const handleSubmit = () => {
         if (usernamee && passwordd) {
-            let username = usernamee.trim()
-            let password = sha256(passwordd.trim())
-            const basicAuth = "Basic " + btoa(`${username}:${password}`);
-            dispatch(handleLogin(basicAuth))
+            dispatch(loginRequest())
+
+            setTimeout(() => {
+                let username = usernamee.trim()
+                let password = sha256(passwordd.trim())
+
+                if (username === "mr-unger" && password === "fe11543f71807a4b5d6302e118ac9c5ba7067cf15bd8da27bc2f2ce093318e14") {
+                    dispatch(loginResponse(password))
+                } else {
+                    dispatch(updateFailure("Invalid credentials"))
+                }
+
+                // const basicAuth = "Basic " + btoa(`${username}:${password}`);
+                // dispatch(handleLogin(basicAuth))
+            }, 100)
         } else {
             dispatch(handleValidation)
         }
@@ -38,7 +50,7 @@ const LoginForm = () => {
             // if(role === "admin"){
             //     navigate("/admin_dashboard/home")
             // }else{
-                navigate("/home")
+            navigate("/home")
             // }
         }
     }, [token])
