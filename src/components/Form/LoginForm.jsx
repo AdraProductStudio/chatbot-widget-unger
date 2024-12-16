@@ -30,7 +30,9 @@ const LoginForm = () => {
                 let username = usernamee.trim()
                 let password = sha256(passwordd.trim())
 
-                if (username === "mr-unger" && password === "fe11543f71807a4b5d6302e118ac9c5ba7067cf15bd8da27bc2f2ce093318e14") {
+                console.log(password)
+                if (username === "mr-unger" && password === "fe11543f71807a4b5d6302e118ac9c5ba7067cf15bd8da27bc2f2ce093318e14" || 
+                    username === "mr-rowley" && password === "67b8d721e99b87f05d0e7653119ca3a1a0f657a708e05c6b0e6f33a937fd6a93") {
                     dispatch(loginResponse(password))
                 } else {
                     dispatch(updateFailure("Invalid credentials"))
