@@ -6243,14 +6243,6 @@ for the first time!</p>--><a href="https://www.ungerglobal.com/uk/products/nlite
                         display: flex;
                     }
 
-                    /* .chatbox p{
-    background-color: var(--green);
-    border-radius: 10px 10px 0px 10px;
-    padding: 12px 16px;
-    color: #fff;
-    font-size: 0.95rem;
-    max-width: 75%;
-} */
                     .MR-chatbox .incoming {
                         margin-top: 7px;
 
@@ -27250,16 +27242,17 @@ for the first time!</p>--><a href="https://www.ungerglobal.com/uk/products/nlite
         let apiToken;
 
         const generateToken = async () => {
-            const url = "https://consumerapi.modelrocket.ai/gettoken";
-            const username = "matsuri"; // Replace with your username
+            const url = "https://consumerapi-dev.modelrocket.ai/gettoken";
+            const username = "9a646bef-1fac-4832-b5d0-778a39711fdb"; // Replace with your username
             const password =
-                "fc153ac36455604c6a6bcb3e22c0a4debfb746d59ad4a33a4b0d50f315206958d78da64e88957993e537e5ef235537a65ac0bc8fbaa725ae3e8e151617e82b81";
+                "93jh7MefEba3v8_EgTpYbnaxQNj-MBbnSusFvX6bxws";
             const base64Credentials = btoa(`${username}:${password}`);
 
             fetch(url, {
                 method: "GET",
                 headers: {
                     Authorization: `Basic ${base64Credentials}`,
+                    "domain": "adraproductstudio.github.io",
                 },
             })
                 .then((response) => {
@@ -27289,7 +27282,6 @@ for the first time!</p>--><a href="https://www.ungerglobal.com/uk/products/nlite
 
 
 
-
         const getData = async (flag, userInputTextValue) => {
 
             console.log(flag)
@@ -27308,14 +27300,14 @@ for the first time!</p>--><a href="https://www.ungerglobal.com/uk/products/nlite
                 session_id: randomNumber,
             };
 
-
-            const url = "https://consumerapi.modelrocket.ai/chatbot_widget";
+            const url = "https://consumerapi-dev.modelrocket.ai/chatbot_widget";
 
             await fetch(url, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${apiToken}`,
+                    "domain": "adraproductstudio.github.io",
                 },
                 body: JSON.stringify(requiredParams),
             })
@@ -27327,7 +27319,6 @@ for the first time!</p>--><a href="https://www.ungerglobal.com/uk/products/nlite
                 })
                 .then((data) => {
                     console.log(Object.keys(data.data).length === 0);
-                    console.log(data.data);
                     dataObject = data.data
                     incomingMsgBox1.className = "d-none"
                     if (data.error_code === 201) {
