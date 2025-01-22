@@ -27342,7 +27342,7 @@ for the first time!</p>--><a href="https://www.ungerglobal.com/uk/products/nlite
         let apiToken;
 
         const generateToken = async () => {
-            const url = "https://consumerapi-dev.modelrocket.ai/gettoken";
+            const url = "https://consumerapi.modelrocket.ai/gettoken";
             const username = "97c4dc06-b3fe-4538-a36a-ef9b3897eeda"; // Replace with your username
             const password = "CerriH1EXVuJ3esafw9JM4cqpxjUu2ZArm3HBTkbSb4";
             const base64Credentials = btoa(`${username}:${password}`);
@@ -27351,7 +27351,7 @@ for the first time!</p>--><a href="https://www.ungerglobal.com/uk/products/nlite
                 method: "GET",
                 headers: {
                     Authorization: `Basic ${base64Credentials}`,
-                    domain: "onboardconfig-dev.modelrocket.ai"
+                    domain: "onboardconfig.modelrocket.ai"
                 },
             })
                 .then((response) => {
@@ -27417,8 +27417,8 @@ for the first time!</p>--><a href="https://www.ungerglobal.com/uk/products/nlite
             var dataObject;
 
             requiredParams = {
-                    client_name: "Unger-UK",
-                    service_name: "Unger-UK",
+                    client_name: "Unger - UK",
+                    service_name: "Unger - UK",
                     language: "english",
                     msg: userInputTextValue,
                     flag: flag,
@@ -27430,14 +27430,14 @@ for the first time!</p>--><a href="https://www.ungerglobal.com/uk/products/nlite
 
             console.log(requiredParams)
 
-            const url = "https://consumerapi-dev.modelrocket.ai/chatbot_widget";
+            const url = "https://consumerapi.modelrocket.ai/chatbot_widget";
 
             await fetch(url, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${apiToken}`,
-                    domain: "onboardconfig-dev.modelrocket.ai"
+                    domain: "onboardconfig.modelrocket.ai"
                 },
                 body: JSON.stringify(requiredParams),
             })
