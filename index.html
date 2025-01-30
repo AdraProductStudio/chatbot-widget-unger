@@ -6204,9 +6204,54 @@ for the first time!</p>--><a href="https://www.ungerglobal.com/uk/products/nlite
                     }
 
                     .MR-chatbot .feedback-modal {
-                        width: 60%;
-                        height: 200px;
-                        background-color: pink;
+                        width: 100%;
+                        height : 100%;
+                        background-color: #000;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        z-index: 99996 !important;
+                        padding: 15px;
+                        font-size: 14px;
+                        border-radius: 7px;
+                        display:none;
+                    }
+                    .MR-chatbot .feedback-modal.show {
+                        width: 100%;
+                        height : 100%;
+                        background-color: #0000005e;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        z-index: 99997 !important;
+                        padding: 15px;
+                        font-size: 14px;
+                        border-radius: 7px;
+                        display:flex;
+                        justify-content: center;
+                        align-items:center
+                    }
+                    .MR-chatbot .feedback-modal.show .feedback-container {
+                        width:65%;
+                        /* height: 200px; */
+                        background-color: #fff;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        z-index: 99998 !important;
+                        padding: 15px;
+                        font-size: 14px;
+                        border-radius: 7px;
+                        display:block;
+                    }
+
+                    .MR-chatbot .loading-container {
+                        width: 100%;
+                        height : 100%;
+                        background-color: #0000005e;
                         position: absolute;
                         top: 50%;
                         left: 50%;
@@ -6215,26 +6260,111 @@ for the first time!</p>--><a href="https://www.ungerglobal.com/uk/products/nlite
                         padding: 15px;
                         font-size: 14px;
                         border-radius: 7px;
-
+                        display:flex;
+                        justify-content: center;
+                        align-items:center;
+                        display:none;
+                    }
+                    .MR-chatbot .loading-container.show {
+                        display:flex;
                     }
 
-                    .feedback-input-field {
-                        /* display:none; */
-                        opacity:0;
-                        transform: translateY(-20px);
-                        transition: all 0.5s ease-in-out;
+
+                    .spinner {
+                        
+                    width: 50px;
+                    height: 50px;
+                    border: 5px solid rgba(0, 0, 0, 0.1);
+                    border-left-color: #fff;
+                    border-radius: 50%;
+                    animation: spin 1s linear infinite;
                     }
 
-                    .feedback-input-field.show {
-                        /* display:block; */
-                        opacity:1;
-                        transform: translateY(0);
+                    @keyframes spin {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                    }
+
+                    
+                    .MR-chatbot .feedback-modal.show .feedback-container #feedback-question {
+                        margin-bottom: 0 !important;
+                    }
+
+                    .MR-chatbot .stars {
+                    display: flex;
+                    flex-direction: row-reverse;
+                    justify-content: flex-end;
+                    }
+
+                    .MR-chatbot .stars input {
+                    display: none;
+                    }
+
+                    .MR-chatbot .stars label {
+                    font-size: 25px;
+                    color: gray;
+                    cursor: pointer;
+                    transition: color 0.2s;
+                    }
+
+                    .MR-chatbot .stars input:checked ~ label,
+                    .MR-chatbot .stars label:hover,
+                    .MR-chatbot .stars label:hover ~ label {
+                    color: gold;
+                    }
+                    
+                    .MR-chatbot .feedback-input-field {
+                        display:none; 
+                        margin-bottom: 15px;
                     }
 
                     .MR-chatbot .feedback-input-field.show {
                         display: block;
+                        padding: 5px 10px;
+                        border-radius: 5px;
+                        width: 100%;
+                        resize: none;
                     }
 
+                    .MR-chatbot .feedback-input-field.show:focus {
+                        display: block;
+                        padding: 5px 10px;
+                        border-radius: 5px;
+                        width: 100%;
+                        outline:none;
+                        border:1px solid #000;
+                        box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+                    }
+
+                 
+                    /* .MR-chatbot .feedback-submit-button{
+                        display:none; 
+                    }
+
+                    .MR-chatbot .feedback-submit-button.show{
+                        display:block; 
+                    } */
+
+                    .feedback-button-container{
+                        display: flex;
+                        display: none;
+                        justify-content: space-between;
+                        gap: 15px;
+                        
+                    }
+                    .feedback-button-container.hide{
+                        display:none;
+                    }
+                    
+                    .feedback-submit-button-container{
+                        display:none;
+                    }
+
+                    .feedback-submit-button-container.show{
+                        display: flex;
+                        justify-content: space-between;
+                        gap: 15px;
+                    }
                     .MR-show-chatbot .MR-chatbot {
                         transform: scale(1);
                         opacity: 1;
@@ -6355,6 +6485,7 @@ for the first time!</p>--><a href="https://www.ungerglobal.com/uk/products/nlite
                         align-items: center;
                         justify-content: center;
                         cursor: pointer;
+                        z-index:999;
                     }
 
                     .MR-chatbot-toggler p {
@@ -6469,7 +6600,6 @@ for the first time!</p>--><a href="https://www.ungerglobal.com/uk/products/nlite
                     .MR-chatbot .incoming-msg-text ul{
                         margin-left:15px
                     }
-
 
                     .MR-chatbot .triangle-left {
                         margin-left: 10px;
@@ -27163,38 +27293,91 @@ for the first time!</p>--><a href="https://www.ungerglobal.com/uk/products/nlite
         }
     </style>
 
-
-
-
     <script defer>
 
+   // Warn when the page is being closed or reloaded
         window.addEventListener("beforeunload", (event) => {
             event.preventDefault();
             event.returnValue = ""; // Ensures browser prompts a confirmation
             hideWidget()
         });
 
+        var feedbackInput;
+        var feedbackValue;
+        var starRating = 0;
 
 
+
+        function getStarValue(event) {
+            if (event.target.tagName === "INPUT") {
+                const rating = event.target.value;
+                starRating = rating;
+                if(rating <= 3){
+                    handleGiveFeedback()
+                }else{
+                    hideWidget()
+                }
+            }
+        }
+
+        function clearStarValue() {
+            document.querySelectorAll('.stars input').forEach(input => {
+                input.checked = false;  
+            });
+
+            starRating = 0;  
+        }
 
         const handleGiveFeedback = () => {
             const feedbackInputField = document.getElementById("feedback-input-field");
             feedbackInputField.classList.add("show")
+
+            const feedbackButtonContainer = document.getElementById("feedback-button-container")
+            feedbackButtonContainer.classList.add("hide")
+            
+            const feedbackSubmitButtonContainer =  document.getElementById("feedback-submit-button-container")
+            feedbackSubmitButtonContainer.classList.add("show")
+
+            const feedbackQuestion = document.getElementById("feedback-question")
+            feedbackQuestion.innerText = "Please specify the query intent and your feedback below";
+         
         }
         const MRChatbotSection = document.getElementById('MR-chatbot-section')
         MRChatbotSection.className = "MR-chatbot-section"
 
+        const loadingContainer = document.createElement("div")
+        loadingContainer.className = "loading-container"
+        loadingContainer.innerHTML = `<div class="spinner"></div>`;
+
         const feedbackModal = document.createElement("div");
         feedbackModal.className = "feedback-modal";
-        feedbackModal.innerHTML = `<div>
-                                        <p>Do you like to give your feedback?</p>
-                                        <input type="text" placeholder="Your feedback" id="feedback-input-field" class="feedback-input-field" />
-                                        <div id="button-container" style="display: flex; justify-content: space-between; gap: 15px; transition: all 0.5s ease-in-out;">
-                                            <button style="background-color: #00904a; color: #fff; border: none; width: 50%; border-radius: 5px; padding: 3px;" onclick="handleGiveFeedback()">Yes</button>
-                                            <button style="background-color: lightgrey; color: #000; border: none; width: 50%; border-radius: 5px; padding: 3px;">No</button>
-                                        </div>
-                                    </div>`;
+        feedbackModal.innerHTML = `<div id="feedback-container" class="feedback-container">
+                                    <p id="feedback-question">Please rate your experience with us</p>
+                                    <div class="stars" onclick="getStarValue(event)">
+                                        <input type="radio" id="star5" name="rating" value="5">
+                                        <label for="star5">★</label>
 
+                                        <input type="radio" id="star4" name="rating" value="4">
+                                        <label for="star4">★</label>
+
+                                        <input type="radio" id="star3" name="rating" value="3">
+                                        <label for="star3">★</label>
+
+                                        <input type="radio" id="star2" name="rating" value="2">
+                                        <label for="star2">★</label>
+
+                                        <input type="radio" id="star1" name="rating" value="1">
+                                        <label for="star1">★</label>
+                                    </div>
+                                    <textarea type="text" placeholder="Enter your feedback here" id="feedback-input-field" class="feedback-input-field" ></textarea>
+                                    <div id="feedback-button-container" class="feedback-button-container" >
+                                        <button style="background-color: #00904a; color: #fff; border: none; width: 50%; border-radius: 5px; padding: 3px;" onclick="handleGiveFeedback()">Yes</button>
+                                        <button style="background-color: lightgrey; color: #000; border: none; width: 50%; border-radius: 5px; padding: 3px;" onclick="hideWidget()">No</button>
+                                    </div>
+                                    <div id="feedback-submit-button-container" class="feedback-submit-button-container">
+                                        <button style="background-color: #00904a; color: #fff; border: none; width: 100%; border-radius: 5px; padding: 3px;" onclick="hideWidget()"">Submit</button>
+                                    </div>
+                                 </div>`;
 
 
         const MRChatbot = document.createElement("div")
@@ -27205,10 +27388,10 @@ for the first time!</p>--><a href="https://www.ungerglobal.com/uk/products/nlite
         const MRh2 = document.createElement("h2")
         MRh2.className = "MR-h2"
         MRh2.innerText = "Chatbot"
-        const p1 = document.createElement("p")
-        p1.className = "MR material-symbols-outlined close-icon chatbot-close-icon"
-        p1.innerText = "close"
-        MRheader.append(MRh2, p1)
+        const minimizedScreenCloseIcon = document.createElement("p")
+        minimizedScreenCloseIcon.className = "MR material-symbols-outlined close-icon chatbot-close-icon"
+        minimizedScreenCloseIcon.innerText = "close"
+        MRheader.append(MRh2, minimizedScreenCloseIcon)
 
 
         const MRChatContainer = document.createElement("div")
@@ -27249,8 +27432,7 @@ for the first time!</p>--><a href="https://www.ungerglobal.com/uk/products/nlite
         MRChatInput.append(MRUserInputText, MRSendbtnSpan)
 
 
-        MRChatbot.append(MRheader, MRChatContainer, MRChatInput)
-        // MRChatbot.append(feedbackModal, MRheader, MRChatContainer, MRChatInput)
+        MRChatbot.append(loadingContainer,feedbackModal, MRheader, MRChatContainer, MRChatInput)
 
 
         const MRChatbotToggler = document.createElement("div")
@@ -27271,7 +27453,7 @@ for the first time!</p>--><a href="https://www.ungerglobal.com/uk/products/nlite
         let timerRef = null;
         let randomNumber = null;
 
-        var userFeedback;
+
 
         const randomNumberGenerate = () => {
             return Math.floor(Math.random() * (9999999999 - 1000000000 + 1)) + 1000000000;
@@ -27301,38 +27483,74 @@ for the first time!</p>--><a href="https://www.ungerglobal.com/uk/products/nlite
 
         MRChatboxUl.append(incomingMsgBox1);
 
+        const handleToggler = async (value) => {
+           if(value === "openWidget"){
+            MRChatboxUl.innerHTML = "";
+            MRUserInputText.value = ""
+            const feedbackInputField = document.getElementById("feedback-input-field");
+            feedbackInputField.classList.remove("show")
+                feedbackInput = document.getElementById("feedback-input-field");
+                feedbackInput.value =  "";
+                feedbackModal.classList.remove("show")
+                const feedbackButtonContainer = document.getElementById("feedback-button-container")
+                feedbackButtonContainer.classList.remove("hide")
+            
+                 
+            const feedbackSubmitButtonContainer =  document.getElementById("feedback-submit-button-container")
+            feedbackSubmitButtonContainer.classList.remove("show")
 
-
-
-
-
-
-
-        const handleToggler = async () => {
-
-            incomingMsgBox1.className = "d-flex placeholder-msg";
-
-            MRChatboxUl.append(incomingMsgBox1);
-            // MRChatbotSection.classList.add("MR-show-chatbot");
-            MRChatbotSection.classList.toggle("MR-show-chatbot");
-            if (MRChatbotSection.className.includes("MR-show-chatbot")) {
-
+                incomingMsgBox1.className = "d-flex placeholder-msg";
+                MRChatboxUl.append(incomingMsgBox1);
+                MRChatbotSection.classList.add("MR-show-chatbot");
                 (async () => {
-                    await welcomeMessage();
-                })();
-                randomNumber = randomNumberGenerate()
-            } else {
-                MRChatbotSection.classList.remove("MR-show-chatbot");
-
-                MRChatboxUl.innerHTML = "";
-                MRUserInputText.value = ""
-
-                resetIdleTracking("close")
+                   
+                   await welcomeMessage();
+               })();
+               randomNumber = randomNumberGenerate()
+            }
+            
+            else{
+                feedbackModal.classList.add("show")
+                MRChatbotToggler.style.pointerEvents = "none"
+                MRChatbotToggler.style.opacity = "0.3"
             }
         };
 
-        MRChatbotToggler.addEventListener("click", handleToggler);
-        p1.addEventListener("click", function () {
+
+        const hideWidget = () => {
+
+            feedbackInput = document.getElementById("feedback-input-field");
+            feedbackValue =  feedbackInput.value;
+
+            // const feedbackQuestion = document.getElementById("feedback-question")
+            // feedbackQuestion.innerText = "Please rate your experience with us";
+            // MRChatboxUl.innerHTML = "";
+            // MRUserInputText.value = ""
+            
+            resetIdleTracking("close")
+
+            // MRChatbotSection.classList.remove("MR-show-chatbot");
+
+            console.log("starRating",starRating)
+
+
+        //    setTimeout(() => {
+        //         MRChatbotToggler.style.pointerEvents = "all"
+        //         MRChatbotToggler.style.opacity = "1"
+        //    },5000)
+        }
+
+
+        MRChatbotToggler.addEventListener("click",() => {
+
+            if(MRChatbotSection.className.includes("MR-show-chatbot")){
+                handleToggler("closeWidget")
+            }else{
+                handleToggler("openWidget")
+            }
+           
+        } );
+        minimizedScreenCloseIcon.addEventListener("click", function () {
             MRChatbotSection.classList.remove("MR-show-chatbot");
         });
 
@@ -27425,7 +27643,21 @@ for the first time!</p>--><a href="https://www.ungerglobal.com/uk/products/nlite
             var requiredParams;
             var dataObject;
 
-            requiredParams = {
+            if (flag === "close") {
+                loadingContainer.classList.add("show")
+                requiredParams = {
+                    client_name: "Unger- UK",
+                    service_name: "Unger- UK",
+                    language: "english",
+                    msg: userInputTextValue,
+                    flag: flag,
+                    session_id: randomNumber,
+                    feedback: feedbackValue === "" ? "" : feedbackValue,
+                    rating : starRating
+                };
+              
+            } else {
+                requiredParams = {
                     client_name: "Unger - UK",
                     service_name: "Unger - UK",
                     language: "english",
@@ -27434,8 +27666,7 @@ for the first time!</p>--><a href="https://www.ungerglobal.com/uk/products/nlite
                     session_id: randomNumber,
 
                 };
-
-           
+            }
 
             console.log(requiredParams)
 
@@ -27459,22 +27690,31 @@ for the first time!</p>--><a href="https://www.ungerglobal.com/uk/products/nlite
                 .then((data) => {
                     console.log(Object.keys(data.data).length === 0);
                     console.log(data);
+               
+                    
                     dataObject = data.data
                     incomingMsgBox1.className = "d-none"
                     if (incomingMsgBox2) {
                         incomingMsgBox2.className = "d-none"
                     }
                     if (data.error_code === 201) {
+                        
                         apiData = data.data.message;
                         clearTimeout(timerRef);
                         randomNumber = randomNumberGenerate()
                         setTimeout(() => {
-                            handleToggler()
+                            closeChat()
                         }, 1500);
 
                     } else {
-                        apiData = data.data.message;
-                        resetIdleTracking("continous");
+                        if(data.error_code === 200 && data.data.message === "Your chat has been closed."){
+                            closeChat()
+                            return
+                        }else{
+                            apiData = data.data.message;
+                            resetIdleTracking("continous");
+                        }
+
                         // if(flag === "close"){
                         //     resetIdleTracking("close");
                         // }else{
@@ -27513,7 +27753,9 @@ for the first time!</p>--><a href="https://www.ungerglobal.com/uk/products/nlite
                 incomingMsgText.append(incomingMsgTime);
                 const bottomChat1 = document.createElement("div");
                 incomingMsgBox.append(essenceImg, triangleLeft, incomingMsgText, bottomChat1);
-                MRChatboxUl.append(incomingMsgBox);
+                if(apiData !== undefined){
+                    MRChatboxUl.append(incomingMsgBox);
+                }
                 bottomChat1.scrollIntoView({ behavior: "smooth" });
             } else {
                 const incomingMsgBox = document.createElement("div");
@@ -27612,12 +27854,10 @@ for the first time!</p>--><a href="https://www.ungerglobal.com/uk/products/nlite
         });
 
         const resetIdleTracking = (value) => {
-
             if (timerRef) {
                 clearTimeout(timerRef);
             }
             if (value === "close") {
-                console.log("closed")
                 startIdleTracking("close"); // Restart idle tracking
             } else {
                 startIdleTracking("continous")
@@ -27625,18 +27865,35 @@ for the first time!</p>--><a href="https://www.ungerglobal.com/uk/products/nlite
 
         };
 
-        const startIdleTracking = (value) => {
+        const startIdleTracking = async (value) => {
             if (value === "close") {
-                MRChatboxUl.innerHTML = "";
-                return
-            }
-            timerRef = setTimeout(async () => {
+                await getData("close", "");
+            }else{
+                timerRef = setTimeout(async () => {
                 const response = await generateResponse("step", "");
                 if (response) {
                     resetIdleTracking("continous");
                 }
-            }, 5000); // First idle check after specified timeout
+            }, 5000); 
+            }
+           
+            
         };
+
+        const closeChat = () => {
+            console.log("chat end")
+            loadingContainer.classList.remove("show")
+            MRChatbotSection.classList.remove("MR-show-chatbot");
+            const feedbackQuestion = document.getElementById("feedback-question")
+            feedbackQuestion.innerText = "Please rate your experience with us";
+            MRUserInputText.value = ""
+            feedbackModal.classList.remove("show")
+            MRChatboxUl.innerHTML = "";
+            clearStarValue()
+            MRChatbotToggler.style.pointerEvents = "all"
+            MRChatbotToggler.style.opacity = "1"
+            return
+        }
 
         let country = "https://www.ungerglobal.com/es/servicio/downloads"
         let splittedCountry = country.split("/")
