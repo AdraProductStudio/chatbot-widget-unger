@@ -27168,6 +27168,15 @@ for the first time!</p>--><a href="https://www.ungerglobal.com/uk/products/nlite
 
     <script defer>
 
+        window.addEventListener("beforeunload", (event) => {
+            event.preventDefault();
+            event.returnValue = ""; // Ensures browser prompts a confirmation
+            hideWidget()
+        });
+
+
+
+
         const handleGiveFeedback = () => {
             const feedbackInputField = document.getElementById("feedback-input-field");
             feedbackInputField.classList.add("show")
@@ -27178,13 +27187,13 @@ for the first time!</p>--><a href="https://www.ungerglobal.com/uk/products/nlite
         const feedbackModal = document.createElement("div");
         feedbackModal.className = "feedback-modal";
         feedbackModal.innerHTML = `<div>
-    <p>Do you like to give your feedback?</p>
-    <input type="text" placeholder="Your feedback" id="feedback-input-field" class="feedback-input-field" />
-    <div id="button-container" style="display: flex; justify-content: space-between; gap: 15px; transition: all 0.5s ease-in-out;">
-        <button style="background-color: #00904a; color: #fff; border: none; width: 50%; border-radius: 5px; padding: 3px;" onclick="handleGiveFeedback()">Yes</button>
-        <button style="background-color: lightgrey; color: #000; border: none; width: 50%; border-radius: 5px; padding: 3px;">No</button>
-    </div>
-</div>`;
+                                        <p>Do you like to give your feedback?</p>
+                                        <input type="text" placeholder="Your feedback" id="feedback-input-field" class="feedback-input-field" />
+                                        <div id="button-container" style="display: flex; justify-content: space-between; gap: 15px; transition: all 0.5s ease-in-out;">
+                                            <button style="background-color: #00904a; color: #fff; border: none; width: 50%; border-radius: 5px; padding: 3px;" onclick="handleGiveFeedback()">Yes</button>
+                                            <button style="background-color: lightgrey; color: #000; border: none; width: 50%; border-radius: 5px; padding: 3px;">No</button>
+                                        </div>
+                                    </div>`;
 
 
 
@@ -27533,7 +27542,6 @@ for the first time!</p>--><a href="https://www.ungerglobal.com/uk/products/nlite
 
         const generateResponse = async (flag, value) => {
             (async () => {
-                console.log("hiii")
                 await getData(flag, value);
             })();
         };
