@@ -37,7 +37,7 @@ const LoginForm = () => {
                     username === "mr-jewelry" && password === "0291e9d80f089e4e9c2e6625355341267de6705d6bb1fd8e32195cc6ba617267" ||
                     username === "mr-easton" && password === "21e57bcb84db66db631014e70adfe6c432022a9e4f4e5991c1b467a9133d4886" ||  
                     username === "mr-v1" && password === "c81ef2ab35675840b62641dfcdd856bcabf635cdc7758c73616091b764397bbe" ||  
-                    username === "mr-v2" && password === "c81ef2ab35675840b62641dfcdd856bcabf635cdc7758c73616091b764397bbe" 
+                    username === "mr-v2" && password === "de5661de447c95026d3733498c25a232591195485c2d5a2df78efe9e86292351" 
                 
                 ) {
                     dispatch(loginResponse(password))
