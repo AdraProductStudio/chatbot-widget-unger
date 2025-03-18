@@ -68,13 +68,19 @@ const Homepage = () => {
                           src="https://adraproductstudio.github.io/chatbot-widget-onboard-march4/"
                           sandbox="allow-scripts allow-same-origin"
                           className='chatbot-iframe'
-                        ></iframe>
-                        :
-                        <iframe
-                          src="https://adraproductstudio.github.io/chatbot-widget-rowley/"
-                          sandbox="allow-scripts allow-same-origin"
-                          className='chatbot-iframe'
-                        ></iframe>
+                        ></iframe> :
+                        token === "afcc015cd8d5d672cf12231d0ece8253480c0002053a5223e1618e79579684f2" ?
+                          <iframe
+                            src="https://adraproductstudio.github.io/chatbot-widget-jcheritage/"
+                            sandbox="allow-scripts allow-same-origin"
+                            className='chatbot-iframe'
+                          ></iframe>
+                          :
+                          <iframe
+                            src="https://adraproductstudio.github.io/chatbot-widget-rowley/"
+                            sandbox="allow-scripts allow-same-origin"
+                            className='chatbot-iframe'
+                          ></iframe>
       }
 
     </>
