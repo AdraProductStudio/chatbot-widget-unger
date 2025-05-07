@@ -45,7 +45,7 @@ const LoginForm = () => {
                     username === "mr-southern" && password === "e2f745e47090de53dbb07967bcb9365e6fffb696b45ec22bc7321ce1832765e5" ||
                     username === "mr-turf" && password === "76ca3e7b224d4d957520a6f4a16630de6446ad8dafe3b085b3fb64322df86223" ||
                     username === "mr-assurance" && password === "2fb1949b85342ad3a4c4e554a5cb8a47839b9afee909d9022b019189577cb6ca" ||
-                    username === "mr-easton" && password === "0d21209ecbb0aebd983fa87c43e34afe1a967b61e063c7f586ff9a98d2d733fa"  // eastonroofing-new
+                    username === "easton-sandbox" && password === "97497aa55b85dbe8955201658318a624ab39d9d28843ad36689c85e8dc968d36"  // eastonroofing-new
 
                 ) {
                     dispatch(loginResponse(password))
