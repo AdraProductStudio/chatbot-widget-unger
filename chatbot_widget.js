@@ -1059,8 +1059,10 @@
                         return response.json();
                     })
                     .then((data) => {
-
+                        console.log("data", data)
                         dataObject = data.data
+                        console.log("dataObject", dataObject)
+                        console.log("Object.keys(dataObject)", Object.keys(dataObject))
                         incomingMsgBox1.className = "d-none"
                         if (incomingMsgBox2) {
                             incomingMsgBox2.className = "d-none"
@@ -1137,7 +1139,7 @@
                     triangleLeft.className = "triangle-left";
                     const incomingMsgText = document.createElement("div");
                     incomingMsgText.className = "incoming-msg-text";
-                    incomingMsgText.innerHTML = `${apiData}`;
+                    incomingMsgText.innerHTML = `${apiData === "" ? "Sorry, an internal issue occurred. Please try submitting your message again." : apiData}`;
                     const links = incomingMsgText.querySelectorAll("a");
                     links.forEach(link => {
                         link.setAttribute("target", "_blank");
