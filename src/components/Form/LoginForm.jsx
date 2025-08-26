@@ -24,6 +24,7 @@ const LoginForm = () => {
 
     const handleSubmit = () => {
         if (usernamee && passwordd) {
+            console.log()
             dispatch(loginRequest())
 
             setTimeout(() => {
@@ -31,7 +32,7 @@ const LoginForm = () => {
                 let password = sha256(passwordd.trim())
 
                 // console.log(username,password)
-                if (username === "mr-unger" && password === "6243b32cf503d60141085013b30cd7a3adecf3f5725421c71918ce76a6f3b692" ||
+                if (username === "mr-unger" && password === "e3e854673e9b030c33b8ab01a0c1829c25ba2824dc2b911aea51c1d7e091652f" ||
                     username === "mr-rowley" && password === "67b8d721e99b87f05d0e7653119ca3a1a0f657a708e05c6b0e6f33a937fd6a93" ||
                     username === "mr-toyota" && password === "d74c985dedcbf9df6834b77e4ad3cb320bb78c241585f725bdb337a9e69ec7d3" ||
                     username === "mr-jewelry" && password === "0291e9d80f089e4e9c2e6625355341267de6705d6bb1fd8e32195cc6ba617267" ||
