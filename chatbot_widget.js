@@ -1042,7 +1042,7 @@
         let apiToken;
 
         const generateToken = async () => {
-            const url = "https://consumerapi-dev.modelrocket.ai/gettoken";
+            const url = "https://consumerapi.modelrocket.ai/gettoken";
             // const url = "http://10.10.1.18:5000/gettoken";
             // const url = "http://192.168.1.104:5000/gettoken";
             const username = "97c4dc06-b3fe-4538-a36a-ef9b3897eeda"; // Replace with your username
@@ -1053,7 +1053,7 @@
                 method: "GET",
                 headers: {
                     Authorization: `Basic ${base64Credentials}`,
-                    domain: "onboardconfig-dev.modelrocket.ai"
+                    domain: "onboardconfig.modelrocket.ai"
                     // domain: "onboardconfig.modelrocket.ai"
                 },
             })
@@ -1146,8 +1146,8 @@
             if (flag === "close") {
                 loadingContainer.classList.add("show")
                 requiredParams = {
-                    client_name: "GenAI WebAgent - Enterpri",
-                    // client_name: "Unger - UK",
+                    // client_name: "GenAI WebAgent - Enterpri",
+                    client_name: "Unger - UK",
                     service_name: "Unger - UK",
                     language: "english",
                     msg: userInputTextValue,
@@ -1159,8 +1159,8 @@
               
             } else {
                 requiredParams = {
-                    client_name: "GenAI WebAgent - Enterpri",
-                    // client_name: "Unger - UK",
+                    // client_name: "GenAI WebAgent - Enterpri",
+                    client_name: "Unger - UK",
                     service_name: "Unger - UK",
                     language: "english",
                     msg: userInputTextValue,
@@ -1171,7 +1171,7 @@
             }
 
 
-            const url = "https://consumerapi-dev.modelrocket.ai/chatbot_widget";
+            const url = "https://consumerapi.modelrocket.ai/chatbot_widget";
             // const url = "http://10.10.1.18:5000/chatbot_widget";
             // const url = "http://192.168.1.104:5000/chatbot_widget";
 
@@ -1180,7 +1180,7 @@
                 headers: {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${apiToken}`,
-                    domain: "onboardconfig-dev.modelrocket.ai"
+                    domain: "onboardconfig.modelrocket.ai"
                     // domain: "onboardconfig.modelrocket.ai"
                 },
                 body: JSON.stringify(requiredParams),
