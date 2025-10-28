@@ -580,7 +580,7 @@
                                             />
                                             <small id="postcode-error" class="error-text"></small>
 
-                                            <input list="countries" name="country" id="country" placeholder="Type to search..." onchange="clearError('country-error')">
+                                            <input list="countries" name="country" id="country" placeholder="Country" onchange="clearError('country-error')">
 
                                                 <datalist id="countries">
                                                     <option value="Afghanistan">
@@ -857,7 +857,7 @@
                                                 />
                                                 <small id="city-2-error" class="error-text"></small>
 
-                                                <input list="countries-2" name="country" id="country-2" placeholder="Type to search..." onchange="clearError('country-2-error')">
+                                                <input list="countries-2" name="country" id="country-2" placeholder="Country" onchange="clearError('country-2-error')">
 
                                                 <datalist id="countries-2">
                                                     <option value="Afghanistan">
@@ -1087,7 +1087,7 @@
                                                     placeholder="City" required oninput="clearError('city-3-error')" />
                                                 <small id="city-3-error" class="error-text"></small>
 
-                                                <input list="countries-3" name="country" id="country-3" placeholder="Type to search..." onchange="clearError('country-3-error')">
+                                                <input list="countries-3" name="country" id="country-3" placeholder="Country" onchange="clearError('country-3-error')">
 
                                                 <datalist id="countries-3">
                                                     <option value="Afghanistan">
