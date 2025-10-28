@@ -580,14 +580,175 @@
                                             />
                                             <small id="postcode-error" class="error-text"></small>
 
-                                            <input
-                                                type="text"
-                                                id="country"
-                                                class="user-input-field"
-                                                placeholder="Country"
-                                                required
-                                                oninput="clearError('country-error')"
-                                            />
+                                            <input list="countries" name="country" id="country" placeholder="Type to search..." onchange="clearError('country-error')">
+
+                                                <datalist id="countries">
+                                                    <option value="Afghanistan">
+                                                    <option value="Albania">
+                                                    <option value="Algeria">
+                                                    <option value="Andorra">
+                                                    <option value="Angola">
+                                                    <option value="Armenia">
+                                                    <option value="Australia">
+                                                    <option value="Austria">
+                                                    <option value="Azerbaijan">
+                                                    <option value="Bahrain">
+                                                    <option value="Bangladesh">
+                                                    <option value="Belarus">
+                                                    <option value="Belgium">
+                                                    <option value="Benin">
+                                                    <option value="Bhutan">
+                                                    <option value="Bosnia and Herzegovina">
+                                                    <option value="Botswana">
+                                                    <option value="Brunei Darussalam">
+                                                    <option value="Bulgaria">
+                                                    <option value="Burkina Faso">
+                                                    <option value="Burundi">
+                                                    <option value="Cabo Verde">
+                                                    <option value="Cambodia">
+                                                    <option value="Cameroon">
+                                                    <option value="Cayman Islands">
+                                                    <option value="Central African Republic">
+                                                    <option value="Chad">
+                                                    <option value="China">
+                                                    <option value="Cocos (Keeling) Islands">
+                                                    <option value="Comoros">
+                                                    <option value="DR Congo">
+                                                    <option value="Congo">
+                                                    <option value="Cook Islands">
+                                                    <option value="Croatia">
+                                                    <option value="Cyprus">
+                                                    <option value="Czechia">
+                                                    <option value="Côte d'Ivoire">
+                                                    <option value="Denmark">
+                                                    <option value="Djibouti">
+                                                    <option value="Egypt">
+                                                    <option value="Equatorial Guinea">
+                                                    <option value="Eritrea">
+                                                    <option value="Estonia">
+                                                    <option value="Eswatini">
+                                                    <option value="Ethiopia">
+                                                    <option value="Faroe Islands">
+                                                    <option value="Fiji">
+                                                    <option value="Finland">
+                                                    <option value="France">
+                                                    <option value="French Guiana">
+                                                    <option value="French Polynesia">
+                                                    <option value="Gabon">
+                                                    <option value="Gambia (the)">
+                                                    <option value="Georgia">
+                                                    <option value="Germany">
+                                                    <option value="Ghana">
+                                                    <option value="Gibraltar">
+                                                    <option value="Greece">
+                                                    <option value="Greenland">
+                                                    <option value="Guadeloupe">
+                                                    <option value="Guinea">
+                                                    <option value="Guinea-Bissau">
+                                                    <option value="Hong Kong">
+                                                    <option value="Hungary">
+                                                    <option value="Iceland">
+                                                    <option value="India">
+                                                    <option value="Indonesia">
+                                                    <option value="Iran">
+                                                    <option value="Iraq">
+                                                    <option value="Ireland">
+                                                    <option value="Isle of Man">
+                                                    <option value="Israel">
+                                                    <option value="Italy">
+                                                    <option value="Japan">
+                                                    <option value="Jordan">
+                                                    <option value="Kazakhstan">
+                                                    <option value="Kenya">
+                                                    <option value="Kiribati">
+                                                    <option value="Korea">
+                                                    <option value="Kuwait">
+                                                    <option value="Kyrgyzstan">
+                                                    <option value="Latvia">
+                                                    <option value="Lebanon">
+                                                    <option value="Lesotho">
+                                                    <option value="Liberia">
+                                                    <option value="Libya">
+                                                    <option value="Liechtenstein">
+                                                    <option value="Lithuania">
+                                                    <option value="Macao">
+                                                    <option value="Malawi">
+                                                    <option value="Malaysia">
+                                                    <option value="Maldives">
+                                                    <option value="Mali">
+                                                    <option value="Malta">
+                                                    <option value="Moldova">
+                                                    <option value="Monaco">
+                                                    <option value="Mongolia">
+                                                    <option value="Montenegro">
+                                                    <option value="Morocco">
+                                                    <option value="Mozambique">
+                                                    <option value="Myanmar">
+                                                    <option value="Namibia">
+                                                    <option value="Nauru">
+                                                    <option value="Nepal">
+                                                    <option value="Netherlands">
+                                                    <option value="New Caledonia">
+                                                    <option value="New Zealand">
+                                                    <option value="Nicaragua">
+                                                    <option value="Niger">
+                                                    <option value="Nigeria">
+                                                    <option value="North Macedonia">
+                                                    <option value="Norway">
+                                                    <option value="Oman">
+                                                    <option value="Pakistan">
+                                                    <option value="Palestine">
+                                                    <option value="Papua New Guinea">
+                                                    <option value="Philippines">
+                                                    <option value="Poland">
+                                                    <option value="Portugal">
+                                                    <option value="Qatar">
+                                                    <option value="Romania">
+                                                    <option value="Russia">
+                                                    <option value="Rwanda">
+                                                    <option value="Samoa">
+                                                    <option value="San Marino">
+                                                    <option value="Saudi Arabia">
+                                                    <option value="Senegal">
+                                                    <option value="Serbia">
+                                                    <option value="Seychelles">
+                                                    <option value="Sierra Leone">
+                                                    <option value="Singapore">
+                                                    <option value="Slovakia">
+                                                    <option value="Slovenia">
+                                                    <option value="Somalia">
+                                                    <option value="South Africa">
+                                                    <option value="South Sudan">
+                                                    <option value="Spain">
+                                                    <option value="Sri Lanka">
+                                                    <option value="Sudan">
+                                                    <option value="Suriname">
+                                                    <option value="Sweden">
+                                                    <option value="Switzerland">
+                                                    <option value="Syria">
+                                                    <option value="Taiwan">
+                                                    <option value="Tajikistan">
+                                                    <option value="Tanzania">
+                                                    <option value="Thailand">
+                                                    <option value="Togo">
+                                                    <option value="Tonga">
+                                                    <option value="Tunisia">
+                                                    <option value="Turkey">
+                                                    <option value="Turkmenistan">
+                                                    <option value="Tuvalu">
+                                                    <option value="Uganda">
+                                                    <option value="Ukraine">
+                                                    <option value="United Arab Emirates">
+                                                    <option value="United Kingdom">
+                                                    <option value="Uzbekistan">
+                                                    <option value="Viet Nam">
+                                                    <option value="Western Sahara">
+                                                    <option value="Yemen">
+                                                    <option value="Zambia">
+                                                    <option value="Zimbabwe">
+                                                    <option value="Kosovo">
+                                            </datalist>
+
                                             <small id="country-error" class="error-text"></small>
 
                                             <div id="user-button-container" class="user-button-container">
@@ -696,14 +857,175 @@
                                                 />
                                                 <small id="city-2-error" class="error-text"></small>
 
-                                                <input
-                                                    type="text"
-                                                    id="country-2"
-                                                    class="user-input-field"
-                                                    placeholder="Country"
-                                                    required
-                                                    oninput="clearError('country-2-error')"
-                                                />
+                                                <input list="countries-2" name="country" id="country-2" placeholder="Type to search..." onchange="clearError('country-2-error')">
+
+                                                <datalist id="countries-2">
+                                                    <option value="Afghanistan">
+                                                    <option value="Albania">
+                                                    <option value="Algeria">
+                                                    <option value="Andorra">
+                                                    <option value="Angola">
+                                                    <option value="Armenia">
+                                                    <option value="Australia">
+                                                    <option value="Austria">
+                                                    <option value="Azerbaijan">
+                                                    <option value="Bahrain">
+                                                    <option value="Bangladesh">
+                                                    <option value="Belarus">
+                                                    <option value="Belgium">
+                                                    <option value="Benin">
+                                                    <option value="Bhutan">
+                                                    <option value="Bosnia and Herzegovina">
+                                                    <option value="Botswana">
+                                                    <option value="Brunei Darussalam">
+                                                    <option value="Bulgaria">
+                                                    <option value="Burkina Faso">
+                                                    <option value="Burundi">
+                                                    <option value="Cabo Verde">
+                                                    <option value="Cambodia">
+                                                    <option value="Cameroon">
+                                                    <option value="Cayman Islands">
+                                                    <option value="Central African Republic">
+                                                    <option value="Chad">
+                                                    <option value="China">
+                                                    <option value="Cocos (Keeling) Islands">
+                                                    <option value="Comoros">
+                                                    <option value="DR Congo">
+                                                    <option value="Congo">
+                                                    <option value="Cook Islands">
+                                                    <option value="Croatia">
+                                                    <option value="Cyprus">
+                                                    <option value="Czechia">
+                                                    <option value="Côte d'Ivoire">
+                                                    <option value="Denmark">
+                                                    <option value="Djibouti">
+                                                    <option value="Egypt">
+                                                    <option value="Equatorial Guinea">
+                                                    <option value="Eritrea">
+                                                    <option value="Estonia">
+                                                    <option value="Eswatini">
+                                                    <option value="Ethiopia">
+                                                    <option value="Faroe Islands">
+                                                    <option value="Fiji">
+                                                    <option value="Finland">
+                                                    <option value="France">
+                                                    <option value="French Guiana">
+                                                    <option value="French Polynesia">
+                                                    <option value="Gabon">
+                                                    <option value="Gambia (the)">
+                                                    <option value="Georgia">
+                                                    <option value="Germany">
+                                                    <option value="Ghana">
+                                                    <option value="Gibraltar">
+                                                    <option value="Greece">
+                                                    <option value="Greenland">
+                                                    <option value="Guadeloupe">
+                                                    <option value="Guinea">
+                                                    <option value="Guinea-Bissau">
+                                                    <option value="Hong Kong">
+                                                    <option value="Hungary">
+                                                    <option value="Iceland">
+                                                    <option value="India">
+                                                    <option value="Indonesia">
+                                                    <option value="Iran">
+                                                    <option value="Iraq">
+                                                    <option value="Ireland">
+                                                    <option value="Isle of Man">
+                                                    <option value="Israel">
+                                                    <option value="Italy">
+                                                    <option value="Japan">
+                                                    <option value="Jordan">
+                                                    <option value="Kazakhstan">
+                                                    <option value="Kenya">
+                                                    <option value="Kiribati">
+                                                    <option value="Korea">
+                                                    <option value="Kuwait">
+                                                    <option value="Kyrgyzstan">
+                                                    <option value="Latvia">
+                                                    <option value="Lebanon">
+                                                    <option value="Lesotho">
+                                                    <option value="Liberia">
+                                                    <option value="Libya">
+                                                    <option value="Liechtenstein">
+                                                    <option value="Lithuania">
+                                                    <option value="Macao">
+                                                    <option value="Malawi">
+                                                    <option value="Malaysia">
+                                                    <option value="Maldives">
+                                                    <option value="Mali">
+                                                    <option value="Malta">
+                                                    <option value="Moldova">
+                                                    <option value="Monaco">
+                                                    <option value="Mongolia">
+                                                    <option value="Montenegro">
+                                                    <option value="Morocco">
+                                                    <option value="Mozambique">
+                                                    <option value="Myanmar">
+                                                    <option value="Namibia">
+                                                    <option value="Nauru">
+                                                    <option value="Nepal">
+                                                    <option value="Netherlands">
+                                                    <option value="New Caledonia">
+                                                    <option value="New Zealand">
+                                                    <option value="Nicaragua">
+                                                    <option value="Niger">
+                                                    <option value="Nigeria">
+                                                    <option value="North Macedonia">
+                                                    <option value="Norway">
+                                                    <option value="Oman">
+                                                    <option value="Pakistan">
+                                                    <option value="Palestine">
+                                                    <option value="Papua New Guinea">
+                                                    <option value="Philippines">
+                                                    <option value="Poland">
+                                                    <option value="Portugal">
+                                                    <option value="Qatar">
+                                                    <option value="Romania">
+                                                    <option value="Russia">
+                                                    <option value="Rwanda">
+                                                    <option value="Samoa">
+                                                    <option value="San Marino">
+                                                    <option value="Saudi Arabia">
+                                                    <option value="Senegal">
+                                                    <option value="Serbia">
+                                                    <option value="Seychelles">
+                                                    <option value="Sierra Leone">
+                                                    <option value="Singapore">
+                                                    <option value="Slovakia">
+                                                    <option value="Slovenia">
+                                                    <option value="Somalia">
+                                                    <option value="South Africa">
+                                                    <option value="South Sudan">
+                                                    <option value="Spain">
+                                                    <option value="Sri Lanka">
+                                                    <option value="Sudan">
+                                                    <option value="Suriname">
+                                                    <option value="Sweden">
+                                                    <option value="Switzerland">
+                                                    <option value="Syria">
+                                                    <option value="Taiwan">
+                                                    <option value="Tajikistan">
+                                                    <option value="Tanzania">
+                                                    <option value="Thailand">
+                                                    <option value="Togo">
+                                                    <option value="Tonga">
+                                                    <option value="Tunisia">
+                                                    <option value="Turkey">
+                                                    <option value="Turkmenistan">
+                                                    <option value="Tuvalu">
+                                                    <option value="Uganda">
+                                                    <option value="Ukraine">
+                                                    <option value="United Arab Emirates">
+                                                    <option value="United Kingdom">
+                                                    <option value="Uzbekistan">
+                                                    <option value="Viet Nam">
+                                                    <option value="Western Sahara">
+                                                    <option value="Yemen">
+                                                    <option value="Zambia">
+                                                    <option value="Zimbabwe">
+                                                    <option value="Kosovo">
+                                                </datalist>
+
                                                 <small id="country-2-error" class="error-text"></small>
 
                                                 <div id="user-button-container-2" class="user-button-container">
@@ -765,8 +1087,175 @@
                                                     placeholder="City" required oninput="clearError('city-3-error')" />
                                                 <small id="city-3-error" class="error-text"></small>
 
-                                                <input type="text" id="country-3" class="user-input-field"
-                                                    placeholder="Country" required oninput="clearError('country-3-error')" />
+                                                <input list="countries-3" name="country" id="country-3" placeholder="Type to search..." onchange="clearError('country-3-error')">
+
+                                                <datalist id="countries-3">
+                                                    <option value="Afghanistan">
+                                                    <option value="Albania">
+                                                    <option value="Algeria">
+                                                    <option value="Andorra">
+                                                    <option value="Angola">
+                                                    <option value="Armenia">
+                                                    <option value="Australia">
+                                                    <option value="Austria">
+                                                    <option value="Azerbaijan">
+                                                    <option value="Bahrain">
+                                                    <option value="Bangladesh">
+                                                    <option value="Belarus">
+                                                    <option value="Belgium">
+                                                    <option value="Benin">
+                                                    <option value="Bhutan">
+                                                    <option value="Bosnia and Herzegovina">
+                                                    <option value="Botswana">
+                                                    <option value="Brunei Darussalam">
+                                                    <option value="Bulgaria">
+                                                    <option value="Burkina Faso">
+                                                    <option value="Burundi">
+                                                    <option value="Cabo Verde">
+                                                    <option value="Cambodia">
+                                                    <option value="Cameroon">
+                                                    <option value="Cayman Islands">
+                                                    <option value="Central African Republic">
+                                                    <option value="Chad">
+                                                    <option value="China">
+                                                    <option value="Cocos (Keeling) Islands">
+                                                    <option value="Comoros">
+                                                    <option value="DR Congo">
+                                                    <option value="Congo">
+                                                    <option value="Cook Islands">
+                                                    <option value="Croatia">
+                                                    <option value="Cyprus">
+                                                    <option value="Czechia">
+                                                    <option value="Côte d'Ivoire">
+                                                    <option value="Denmark">
+                                                    <option value="Djibouti">
+                                                    <option value="Egypt">
+                                                    <option value="Equatorial Guinea">
+                                                    <option value="Eritrea">
+                                                    <option value="Estonia">
+                                                    <option value="Eswatini">
+                                                    <option value="Ethiopia">
+                                                    <option value="Faroe Islands">
+                                                    <option value="Fiji">
+                                                    <option value="Finland">
+                                                    <option value="France">
+                                                    <option value="French Guiana">
+                                                    <option value="French Polynesia">
+                                                    <option value="Gabon">
+                                                    <option value="Gambia (the)">
+                                                    <option value="Georgia">
+                                                    <option value="Germany">
+                                                    <option value="Ghana">
+                                                    <option value="Gibraltar">
+                                                    <option value="Greece">
+                                                    <option value="Greenland">
+                                                    <option value="Guadeloupe">
+                                                    <option value="Guinea">
+                                                    <option value="Guinea-Bissau">
+                                                    <option value="Hong Kong">
+                                                    <option value="Hungary">
+                                                    <option value="Iceland">
+                                                    <option value="India">
+                                                    <option value="Indonesia">
+                                                    <option value="Iran">
+                                                    <option value="Iraq">
+                                                    <option value="Ireland">
+                                                    <option value="Isle of Man">
+                                                    <option value="Israel">
+                                                    <option value="Italy">
+                                                    <option value="Japan">
+                                                    <option value="Jordan">
+                                                    <option value="Kazakhstan">
+                                                    <option value="Kenya">
+                                                    <option value="Kiribati">
+                                                    <option value="Korea">
+                                                    <option value="Kuwait">
+                                                    <option value="Kyrgyzstan">
+                                                    <option value="Latvia">
+                                                    <option value="Lebanon">
+                                                    <option value="Lesotho">
+                                                    <option value="Liberia">
+                                                    <option value="Libya">
+                                                    <option value="Liechtenstein">
+                                                    <option value="Lithuania">
+                                                    <option value="Macao">
+                                                    <option value="Malawi">
+                                                    <option value="Malaysia">
+                                                    <option value="Maldives">
+                                                    <option value="Mali">
+                                                    <option value="Malta">
+                                                    <option value="Moldova">
+                                                    <option value="Monaco">
+                                                    <option value="Mongolia">
+                                                    <option value="Montenegro">
+                                                    <option value="Morocco">
+                                                    <option value="Mozambique">
+                                                    <option value="Myanmar">
+                                                    <option value="Namibia">
+                                                    <option value="Nauru">
+                                                    <option value="Nepal">
+                                                    <option value="Netherlands">
+                                                    <option value="New Caledonia">
+                                                    <option value="New Zealand">
+                                                    <option value="Nicaragua">
+                                                    <option value="Niger">
+                                                    <option value="Nigeria">
+                                                    <option value="North Macedonia">
+                                                    <option value="Norway">
+                                                    <option value="Oman">
+                                                    <option value="Pakistan">
+                                                    <option value="Palestine">
+                                                    <option value="Papua New Guinea">
+                                                    <option value="Philippines">
+                                                    <option value="Poland">
+                                                    <option value="Portugal">
+                                                    <option value="Qatar">
+                                                    <option value="Romania">
+                                                    <option value="Russia">
+                                                    <option value="Rwanda">
+                                                    <option value="Samoa">
+                                                    <option value="San Marino">
+                                                    <option value="Saudi Arabia">
+                                                    <option value="Senegal">
+                                                    <option value="Serbia">
+                                                    <option value="Seychelles">
+                                                    <option value="Sierra Leone">
+                                                    <option value="Singapore">
+                                                    <option value="Slovakia">
+                                                    <option value="Slovenia">
+                                                    <option value="Somalia">
+                                                    <option value="South Africa">
+                                                    <option value="South Sudan">
+                                                    <option value="Spain">
+                                                    <option value="Sri Lanka">
+                                                    <option value="Sudan">
+                                                    <option value="Suriname">
+                                                    <option value="Sweden">
+                                                    <option value="Switzerland">
+                                                    <option value="Syria">
+                                                    <option value="Taiwan">
+                                                    <option value="Tajikistan">
+                                                    <option value="Tanzania">
+                                                    <option value="Thailand">
+                                                    <option value="Togo">
+                                                    <option value="Tonga">
+                                                    <option value="Tunisia">
+                                                    <option value="Turkey">
+                                                    <option value="Turkmenistan">
+                                                    <option value="Tuvalu">
+                                                    <option value="Uganda">
+                                                    <option value="Ukraine">
+                                                    <option value="United Arab Emirates">
+                                                    <option value="United Kingdom">
+                                                    <option value="Uzbekistan">
+                                                    <option value="Viet Nam">
+                                                    <option value="Western Sahara">
+                                                    <option value="Yemen">
+                                                    <option value="Zambia">
+                                                    <option value="Zimbabwe">
+                                                    <option value="Kosovo">
+                                                </datalist>
+
                                                 <small id="country-3-error" class="error-text"></small>
 
                                                 <input type="text" id="product-3" class="user-input-field"
@@ -1126,7 +1615,7 @@
                 );
                 var incomingMsgText2 = document.createElement("p");
                 incomingMsgText2.className = "placeholder-msg-text";
-                incomingMsgText2.innerHTML = `Loading...`;
+                incomingMsgText2.innerHTML = `Analysing the query...`;
                 var incomingMsgTime2 = document.createElement("i");
                 incomingMsgTime2.className = "placeholder-msg-time";
                 incomingMsgTime2.innerText = formatAMPM(new Date());
@@ -1136,6 +1625,19 @@
 
                 MRChatboxUl.append(incomingMsgBox2);
 
+                // --- ADD INTERVAL ---
+                const texts = ["Sorting through relevant information...", "Framing response..."];
+                let index = 0;
+
+                const interval = setInterval(() => {
+                    incomingMsgText2.innerHTML = texts[index] + "<i class='placeholder-msg-time'>" + formatAMPM(new Date()) + "</i>";
+                    
+                    if (index < texts.length - 1) {
+                        index++;
+                    } else {
+                        clearInterval(interval);
+                    }
+                }, 1000);
             }
 
 
