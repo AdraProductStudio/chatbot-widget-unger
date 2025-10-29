@@ -1298,7 +1298,7 @@
         MRheader.className = "MR-header"
         const MRh2 = document.createElement("h2")
         MRh2.className = "MR-h2"
-        MRh2.innerText = "Chatbot"
+        MRh2.innerText = "Unger Agent"
         const minimizedScreenCloseIcon = document.createElement("p")
         minimizedScreenCloseIcon.className = "MR material-symbols-outlined close-icon chatbot-close-icon"
         minimizedScreenCloseIcon.innerText = "close"
@@ -1333,7 +1333,7 @@
         MRUserInputText.setAttribute("autofocus", "")
         MRUserInputText.setAttribute("class", "MR-userInputText")
         MRUserInputText.setAttribute("id", "MR-userInputText")
-        MRUserInputText.setAttribute("placeholder", "Enter a message...")
+        MRUserInputText.setAttribute("placeholder", "Start typing to chat...")
         MRUserInputText.setAttribute("required", "")
         const MRSendbtnSpan = document.createElement("span")
         MRSendbtnSpan.className = "material-symbols-outlined"
@@ -1600,27 +1600,35 @@
 
 
 
-        const getData = async (flag, userInputTextValue) => {
+        const getData = async (flag, userInputTextValue) => { 
+            let interval;
+            const feedbackInputField = document.getElementById("MR-userInputText");
+            const MRUserInputText = document.createElement("textarea");
+            const incomingMsgBox2 = document.createElement("div");
 
             if (userInputTextValue) {
                 const triangleLeft = document.createElement("div");
                 triangleLeft.className = "triangle-left";
-                var incomingMsgBox2 = document.createElement("div");
+
                 incomingMsgBox2.className = "d-flex placeholder-msg";
-                var essenceImg2 = document.createElement("img");
+
+                const essenceImg2 = document.createElement("img");
                 essenceImg2.className = "essence-img";
                 essenceImg2.setAttribute(
                     "src",
                     "https://cdn.modelrocket.ai/cdn/unger_digital_assistant.png"
                 );
-                var incomingMsgText2 = document.createElement("p");
+
+                const incomingMsgText2 = document.createElement("p");
                 incomingMsgText2.className = "placeholder-msg-text";
                 incomingMsgText2.innerHTML = `Analysing the query...`;
-                var incomingMsgTime2 = document.createElement("i");
+
+                const incomingMsgTime2 = document.createElement("i");
                 incomingMsgTime2.className = "placeholder-msg-time";
                 incomingMsgTime2.innerText = formatAMPM(new Date());
                 incomingMsgText2.append(incomingMsgTime2);
-                var bottomChat2 = document.createElement("div");
+
+                const bottomChat2 = document.createElement("div");
                 incomingMsgBox2.append(essenceImg2, triangleLeft, incomingMsgText2, bottomChat2);
 
                 MRChatboxUl.append(incomingMsgBox2);
@@ -1629,24 +1637,29 @@
                 const texts = ["Sorting through relevant information...", "Framing response..."];
                 let index = 0;
 
-                const interval = setInterval(() => {
-                    incomingMsgText2.innerHTML = texts[index] + "<i class='placeholder-msg-time'>" + formatAMPM(new Date()) + "</i>";
-                    
+                feedbackInputField.setAttribute("disabled", "");
+
+                interval = setInterval(() => {
+                    incomingMsgText2.innerHTML =
+                        texts[index] +
+                        "<i class='placeholder-msg-time'>" +
+                        formatAMPM(new Date()) +
+                        "</i>";
+
                     if (index < texts.length - 1) {
                         index++;
                     } else {
                         clearInterval(interval);
                     }
-                }, 1000);
+                }, 2000);
             }
 
-
-
-            var requiredParams;
-            var dataObject;
+            let requiredParams;
+            let apiData = "";
+            let dataObject;
 
             if (flag === "close") {
-                loadingContainer.classList.add("show")
+                loadingContainer.classList.add("show");
                 requiredParams = {
                     // client_name: "GenAI WebAgent - Enterpri",
                     client_name: "Unger - UK",
@@ -1658,7 +1671,6 @@
                     feedback: feedbackValue === "" ? "" : feedbackValue,
                     rating : starRating
                 };
-              
             } else {
                 requiredParams = {
                     // client_name: "GenAI WebAgent - Enterpri",
@@ -1668,161 +1680,185 @@
                     msg: userInputTextValue,
                     flag: flag,
                     session_id: randomNumber,
-
                 };
-            }
-
+            } 
 
             const url = "https://consumerapi.modelrocket.ai/chatbot_widget";
             // const url = "http://10.10.1.18:5000/chatbot_widget";
             // const url = "http://192.168.1.104:5000/chatbot_widget";
 
-            await fetch(url, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${apiToken}`,
-                    domain: "onboardconfig.modelrocket.ai"
-                    // domain: "onboardconfig.modelrocket.ai"
-                },
-                body: JSON.stringify(requiredParams),
-            })
-                .then((response) => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    return response.json();
-                })
-                .then((data) => {               
-                    
-                    dataObject = data.data
-                    incomingMsgBox1.className = "d-none"
-                    if (incomingMsgBox2) {
-                        incomingMsgBox2.className = "d-none"
-                    }
-                    if (data.error_code === 201) {
-                        
-                        apiData = data.data.message;
-                        clearTimeout(timerRef);
-                        randomNumber = randomNumberGenerate()
-                        setTimeout(() => {
-                            closeChat()
-                        }, 1500);
-
-                    } else {
-                        if(data.error_code === 200 && data.data.message === "Your chat has been closed."){
-                            closeChat()
-                            return
-                        }else{
-                            apiData = data.data.message;
-                            resetIdleTracking("continous");
-                        }
-
-                        // if(flag === "close"){
-                        //     resetIdleTracking("close");
-                        // }else{
-                        //     resetIdleTracking("continous");
-                        // }
-
-                    }
-
-                })
-                .catch((error) => {
-                    console.error("Error:", error);
+            try {
+                const response = await fetch(url, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${apiToken}`,
+                        domain: "onboardconfig.modelrocket.ai"
+                        // domain: "onboardconfig.modelrocket.ai"
+                    },
+                    body: JSON.stringify(requiredParams),
                 });
 
-
-            if (Object.keys(dataObject).length === 0) {
-
-            } else if (Object.keys(dataObject).length) {
-
-                const incomingMsgBox = document.createElement("div");
-                incomingMsgBox.className = "d-flex incoming-msg";
-                // incomingMsgBox.setAttribute("id", "content")
-                const essenceImg = document.createElement("img");
-                essenceImg.className = "essence-img";
-                essenceImg.setAttribute(
-                    "src",
-                    "https://cdn.modelrocket.ai/cdn/unger_digital_assistant.png"
-                );
-                const triangleLeft = document.createElement("div");
-                triangleLeft.className = "triangle-left";
-                const incomingMsgText = document.createElement("div");
-                incomingMsgText.className = "incoming-msg-text";
-                let plainText = (apiData || "")
-                .replace(/<style[\s\S]*?>[\s\S]*?<\/style>/gi, "") // remove <style>
-                .replace(/<\/?p[^>]*>/gi, "") // remove <p> tags
-                .replace(/<(?!\/?(a|u|ul|ol|li|br|button)\b)[^>]+>/gi, "") // keep allowed tags
-                .replace(
-                    /<button([^>]*)>/gi,
-                    (_, attrs) => {
-                    // extract class number like class="1"
-                    const classMatch = attrs.match(/class=["']?(\d+)["']?/);
-                    const classNum = classMatch ? classMatch[1] : "";
-
-                    // map class numbers → chatbot actions
-                    const actionMap = {
-                        "1": "open-user-modal",
-                        "2": "open-distributor-modal",
-                        "3": "open-product-modal",
-                    };
-
-                    const action = actionMap[classNum] || "default-action";
-
-                    return `
-                        <br>
-                        <div style="text-align:center;">
-                        <button class="chatbot-btn"
-                                data-action="${action}"
-                                style="background-color:#fff;color:#00904a;border:none;border-radius:5px;padding:6px 12px;cursor:pointer;">
-                    `;
-                    }
-                )
-                .replace(/<\/button>/gi, "</button></div><br>")
-                .replace(/<li[^>]*>/gi, "• ")
-                .replace(/<\/li>/gi, "<br>")
-                .replace(/<\/?ul[^>]*>/gi, "<br>")
-                .replace(/<\/?ol[^>]*>/gi, "<br>")
-                .replace(/<hr\s*\/?>/gi, "<br>----------------<br>")
-                .replace(/\s*\n\s*/g, " ")
-                .trim();
-
-
-                incomingMsgText.innerHTML = plainText; // use innerHTML so <a> links stay clickable
-                const incomingMsgTime = document.createElement("div");
-                incomingMsgTime.className = "incoming-msg-time";
-                incomingMsgTime.innerText = formatAMPM(new Date());
-                incomingMsgText.append(incomingMsgTime);
-                const bottomChat1 = document.createElement("div");
-                incomingMsgBox.append(essenceImg, triangleLeft, incomingMsgText, bottomChat1);
-                if(apiData !== undefined){
-                    MRChatboxUl.append(incomingMsgBox);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
                 }
-                bottomChat1.scrollIntoView({ behavior: "smooth" });
-            } else {
-                const incomingMsgBox = document.createElement("div");
-                incomingMsgBox.className = "d-flex incoming-msg";
-                const essenceImg = document.createElement("img");
-                essenceImg.className = "essence-img";
-                essenceImg.setAttribute(
+
+                const data = await response.json();
+                dataObject = data.data;
+
+                incomingMsgBox1.className = "d-none";
+                if (incomingMsgBox2) {
+                    incomingMsgBox2.className = "d-none";
+                }
+
+                if (data.error_code === 201) {
+                    apiData = data.data.message;
+                    clearTimeout(timerRef);
+                    randomNumber = randomNumberGenerate();
+                    setTimeout(() => closeChat(), 1500);
+                } else {
+                    if (data.error_code === 200 && data.data.message === "Your chat has been closed.") {
+                        closeChat();
+                        return;
+                    } else {
+                        apiData = data.data.message;
+                        resetIdleTracking("continous");
+                    }
+                }
+
+            } catch (error) {
+                clearInterval(interval);
+                if (incomingMsgBox2) incomingMsgBox2.remove()
+
+                if (error instanceof TypeError && error.message === "Failed to fetch") {
+                    apiData = "Network Error. Please check your internet connection.";
+                } else {
+                    apiData = error?.message || "Something went wrong.";
+                }
+ 
+                const errorMsgBox = document.createElement("div");
+                errorMsgBox.className = "d-flex incoming-msg";
+                const errorImg = document.createElement("img");
+                errorImg.className = "essence-img";
+                errorImg.setAttribute(
                     "src",
                     "https://cdn.modelrocket.ai/cdn/unger_digital_assistant.png"
                 );
-                const incomingMsgText = document.createElement("p");
-                incomingMsgText.className = "incoming-msg-text";
-                incomingMsgText.innerHTML = `Something went wrong.Please try again later!`;
-                const incomingMsgTime = document.createElement("i");
-                incomingMsgTime.className = "incoming-msg-time";
-                incomingMsgTime.innerText = formatAMPM(new Date());
-                incomingMsgText.append(incomingMsgTime);
-                const bottomChat1 = document.createElement("div");
-                incomingMsgBox.append(essenceImg, incomingMsgText, bottomChat1);
-                MRChatboxUl.append(incomingMsgBox);
-                bottomChat1.scrollIntoView({ behavior: "smooth" });
+
+                const errorText = document.createElement("p");
+                errorText.className = "incoming-msg-text";
+                errorText.innerHTML = `${apiData}<i class='incoming-msg-time'>${formatAMPM(new Date())}</i>`;
+
+                const bottomChatErr = document.createElement("div");
+                errorMsgBox.append(errorImg, errorText, bottomChatErr);
+                MRChatboxUl.append(errorMsgBox);
+                bottomChatErr.scrollIntoView({ behavior: "smooth" });
+            } finally {
+                feedbackInputField.removeAttribute("disabled");
+                document.getElementById("MR-userInputText").focus();
+
             }
 
+            if (dataObject) {
+                if (Object.keys(dataObject).length === 0) {
+                    // no data
+                } else if (Object.keys(dataObject)?.length) {
+                    const incomingMsgBox = document.createElement("div");
+                    incomingMsgBox.className = "d-flex incoming-msg";
 
-        };
+                    const essenceImg = document.createElement("img");
+                    essenceImg.className = "essence-img";
+                    essenceImg.setAttribute(
+                        "src",
+                        "https://cdn.modelrocket.ai/cdn/unger_digital_assistant.png"
+                    );
+
+                    const triangleLeft = document.createElement("div");
+                    triangleLeft.className = "triangle-left";
+
+                    const incomingMsgText = document.createElement("div");
+                    incomingMsgText.className = "incoming-msg-text";
+
+                    let plainText = (apiData || "")
+                        .replace(/<style[\s\S]*?>[\s\S]*?<\/style>/gi, "")
+                        .replace(/<\/?p[^>]*>/gi, "")
+                        .replace(/<(?!\/?(a|u|ul|ol|li|br|button)\b)[^>]+>/gi, "")
+                        .replace(
+                            /<button([^>]*)>/gi,
+                            (_, attrs) => {
+                                const classMatch = attrs.match(/class=["']?(\d+)["']?/);
+                                const classNum = classMatch ? classMatch[1] : "";
+
+                                const actionMap = {
+                                    "1": "open-user-modal",
+                                    "2": "open-distributor-modal",
+                                    "3": "open-product-modal",
+                                };
+
+                                const action = actionMap[classNum] || "default-action";
+
+                                return `
+                                    <br>
+                                    <div style="text-align:center;">
+                                    <button class="chatbot-btn"
+                                            data-action="${action}"
+                                            style="background-color:#fff;color:#00904a;border:none;border-radius:5px;padding:6px 12px;cursor:pointer;">
+                                `;
+                            }
+                        )
+                        .replace(/<\/button>/gi, "</button></div><br>")
+                        .replace(/<li[^>]*>/gi, "• ")
+                        .replace(/<\/li>/gi, "<br>")
+                        .replace(/<\/?ul[^>]*>/gi, "<br>")
+                        .replace(/<\/?ol[^>]*>/gi, "<br>")
+                        .replace(/<hr\s*\/?>/gi, "<br>----------------<br>")
+                        .replace(/\s*\n\s*/g, " ")
+                        .trim();
+
+                    incomingMsgText.innerHTML = plainText;
+                    const incomingMsgTime = document.createElement("div");
+                    incomingMsgTime.className = "incoming-msg-time";
+                    incomingMsgTime.innerText = formatAMPM(new Date());
+                    incomingMsgText.append(incomingMsgTime);
+
+                    const bottomChat1 = document.createElement("div");
+                    incomingMsgBox.append(essenceImg, triangleLeft, incomingMsgText, bottomChat1);
+
+                    if (apiData !== undefined) {
+                        MRChatboxUl.append(incomingMsgBox);
+                    }
+
+                    bottomChat1.scrollIntoView({ behavior: "smooth" });
+                } else {
+                    const incomingMsgBox = document.createElement("div");
+                    incomingMsgBox.className = "d-flex incoming-msg";
+
+                    const essenceImg = document.createElement("img");
+                    essenceImg.className = "essence-img";
+                    essenceImg.setAttribute(
+                        "src",
+                        "https://cdn.modelrocket.ai/cdn/unger_digital_assistant.png"
+                    );
+
+                    const incomingMsgText = document.createElement("p");
+                    incomingMsgText.className = "incoming-msg-text";
+                    incomingMsgText.innerHTML = `Something went wrong. Please try again later!`;
+
+                    const incomingMsgTime = document.createElement("i");
+                    incomingMsgTime.className = "incoming-msg-time";
+                    incomingMsgTime.innerText = formatAMPM(new Date());
+                    incomingMsgText.append(incomingMsgTime);
+
+                    const bottomChat1 = document.createElement("div");
+                    incomingMsgBox.append(essenceImg, incomingMsgText, bottomChat1);
+                    MRChatboxUl.append(incomingMsgBox);
+                    bottomChat1.scrollIntoView({ behavior: "smooth" });
+                }
+            }
+        }
+
+
+
 
         const generateResponse = async (flag, value) => {
             (async () => {
