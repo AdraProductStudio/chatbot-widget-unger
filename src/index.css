@@ -14,12 +14,12 @@
   --sidebar-header-height: 6rem;
   --sidebar-body-padding: .5rem .9rem;
   --sidebar-body-margin: 3rem 0 0 0;
-  --sidebar-background-color: #3683B8;
+  --sidebar-background-color: #042940;
   --sidebar-border: 1px solid rgba(236, 236, 236, 0.88);
 
-  --btn-brand-bg-color: #FFF;
-  --btn-brand-border-color: black;
-  --btn-brand-color: white;
+  --btn-brand-bg-color: #dbf227;
+  --btn-brand-border-color: #dbf227;
+  --btn-brand-color: #042940;
 
   --btn-brand-outerLayer-bg-color: white;
   --btn-brand-outerLayer-border-color: black;
@@ -102,6 +102,7 @@ body {
   position: absolute;
   top: 3rem;
   right: 1.4rem;
+  color: var(--btn-brand-color);
 }
 
 .or-border {
@@ -533,4 +534,13 @@ header {
 .sidebar-button-index{
   position: relative;
   z-index: 1;
+}
+
+.border-light-subtle {
+  background-color: #042940 !important;
+}
+
+.btn-brand-blue-color{
+  background-color: var(--btn-brand-color) !important;
+  color: #ffffff !important;
 }

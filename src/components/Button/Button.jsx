@@ -15,7 +15,7 @@ const ButtonComponent = ({
   return (
     <button
       type={type}
-      className={`btn btn-primary ${className}`}
+      className={`btn ${className}`}
       onClick={clickFunction}
       title={title}
       disabled={btnDisable}

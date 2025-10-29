@@ -30,7 +30,7 @@ const Header = ({
               <div className='d-inline-block'>
                 <ButtonComponent
                   type="button"
-                  className="px-3 me-xl-2 btn-primary py-2"
+                  className="px-3 me-xl-2 btn-brand-blue-color py-2"
                   clickFunction={() => navigate("/admin_dashboard/home")}
                   buttonName={
                     <span>
@@ -46,7 +46,7 @@ const Header = ({
 
           <ButtonComponent
             type="button"
-            className="px-3 ms-2 btn-primary py-1"
+            className="px-3 ms-2 btn-brand-blue-color py-1"
             clickFunction={() => dispatch(handleLogout())}
             buttonName={<span className='fs-5'>{Icons.logoutLocon}</span>}
           />
@@ -57,7 +57,7 @@ const Header = ({
               <div className={`d-inline-block header-icon-tag-width ${offcanvasOn !== '' ? `d-${offcanvasOn}-none` : 'd-none'}`}>
                 <ButtonComponent
                   type="button"
-                  className="btn-primary py-2"
+                  className="btn-brand-blue-color py-2"
                   clickFunction={offcanvasOnButton}
                   buttonName={Icons.menuIcon}
                 />

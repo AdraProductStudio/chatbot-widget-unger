@@ -80,7 +80,7 @@ const LoginForm = () => {
             <Row className="mb-3">
                 <InputGroup
                     controlId="validationLoginUsername"
-                    gropuClassName="col-12 py-2 text-secondary mb-2"
+                    gropuClassName="col-12 py-2 text-light mb-2"
                     inputHeading="Username"
                     inputType="text"
                     placeholder="Username"
@@ -91,7 +91,7 @@ const LoginForm = () => {
 
                 <InputGroup
                     controlId="validationLoginPassword"
-                    gropuClassName="col-12 py-2 text-secondary"
+                    gropuClassName="col-12 py-2 text-light"
                     inputHeading="Password"
                     inputType="password"
                     placeholder="Password"
@@ -106,7 +106,7 @@ const LoginForm = () => {
 
             <ButtonComponent
                 type="button"
-                className="btn-md w-100"
+                className="btn-brand-color btn-md w-100"
                 clickFunction={handleSubmit}
                 title="Login"
                 buttonName={buttonSpinner ?

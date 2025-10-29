@@ -1,4 +1,4 @@
-const CompanyLogo = require('../assets/Images/mr_logo.png');
+const CompanyLogo = require('../assets/Images/mr-logo-green.png');
 const companyLogoBlack = require('../assets/Images/mr-logo-bloack.png')
 const companyLogoBlue = require('../assets/Images/mr-logo-blue.png');
 const circleImageOne = require('../assets/Images/circle_one.png');

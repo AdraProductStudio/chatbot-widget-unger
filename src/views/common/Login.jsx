@@ -15,10 +15,10 @@ const Login = () => {
               <div className="card-body p-3 p-md-4 p-xl-5 py-5">
                 <div className="text-center mb-3">
                   <Img
-                    src={Image.companyLogoBlue}
+                    src={Image.CompanyLogo}
                     alt="modelrocket-logo"
                   />
-                  <p className='text-secondary fw-bold mt-3'>Sandbox</p>
+                  <p className='text-light fw-bold mt-3'>Sandbox</p>
                   <h6 className='text-center text-primary fw-bold'>Login</h6>
                   <hr className='text-secondary mt-2 mb-4' />
                 </div>
