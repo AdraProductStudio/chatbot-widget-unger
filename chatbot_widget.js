@@ -1617,7 +1617,7 @@ const getData = async (flag, userInputTextValue) => {
 
     const incomingMsgText2 = document.createElement("p");
     incomingMsgText2.className = "placeholder-msg-text";
-    incomingMsgText2.innerHTML = `Analysing the query...`;
+    incomingMsgText2.innerHTML = `Processing your query...`;
 
     const incomingMsgTime2 = document.createElement("i");
     incomingMsgTime2.className = "placeholder-msg-time";
@@ -1635,9 +1635,11 @@ const getData = async (flag, userInputTextValue) => {
     MRChatboxUl.append(incomingMsgBox2);
 
     // --- ADD INTERVAL ---
+
     const texts = [
-      "Sorting through relevant information...",
-      "Framing response...",
+      "Searching knowledge base...",
+      "Synthesizing information...",
+      "Curating a response...",
     ];
     let index = 0;
 
