@@ -1532,8 +1532,6 @@ let apiToken;
 
 const generateToken = async () => {
   const url = "https://consumerapi.modelrocket.ai/gettoken";
-  // const url = "http://10.10.1.18:5000/gettoken";
-  // const url = "http://192.168.1.104:5000/gettoken";
   const username = "97c4dc06-b3fe-4538-a36a-ef9b3897eeda"; // Replace with your username
   const password = "CerriH1EXVuJ3esafw9JM4cqpxjUu2ZArm3HBTkbSb4";
   const base64Credentials = btoa(`${username}:${password}`);
@@ -1543,7 +1541,6 @@ const generateToken = async () => {
     headers: {
       Authorization: `Basic ${base64Credentials}`,
       domain: "onboardconfig.modelrocket.ai",
-      // domain: "onboardconfig.modelrocket.ai"
     },
   })
     .then((response) => {
@@ -1690,8 +1687,6 @@ const getData = async (flag, userInputTextValue) => {
   }
 
   const url = "https://consumerapi.modelrocket.ai/chatbot_widget";
-  // const url = "http://10.10.1.18:5000/chatbot_widget";
-  // const url = "http://192.168.1.104:5000/chatbot_widget";
 
   try {
     const response = await fetch(url, {
@@ -1734,45 +1729,52 @@ const getData = async (flag, userInputTextValue) => {
       }
     }
   } catch (error) {
+    console.log(error);
+    clearTimeout(timerRef);
     clearInterval(interval);
     if (incomingMsgBox2) incomingMsgBox2.remove();
 
-    if (error instanceof TypeError && error.message === "Failed to fetch") {
+    const isOffline = !navigator.onLine;
+
+    // If it's a real offline issue → show "Network Error"
+    if (isOffline) {
       apiData = "Network Error. Please check your internet connection.";
-    } else {
-      apiData = "Something went wrong.";
     }
 
-    const errorMsgBox = document.createElement("div");
-    errorMsgBox.className = "d-flex incoming-msg";
-    const errorImg = document.createElement("img");
-    errorImg.className = "essence-img";
-    errorImg.setAttribute(
-      "src",
-      "https://cdn.modelrocket.ai/cdn/unger_digital_assistant.png"
-    );
+    // === Show message only when needed ===
+    if (apiData) {
+      const errorMsgBox = document.createElement("div");
+      errorMsgBox.className = "d-flex incoming-msg";
 
-    const errorText = document.createElement("p");
-    errorText.className = "incoming-msg-text";
-    errorText.innerHTML = `${apiData}<i class='incoming-msg-time'>${formatAMPM(
-      new Date()
-    )}</i>`;
+      const errorImg = document.createElement("img");
+      errorImg.className = "essence-img";
+      errorImg.src =
+        "https://cdn.modelrocket.ai/cdn/unger_digital_assistant.png";
 
-    const bottomChatErr = document.createElement("div");
-    errorMsgBox.append(errorImg, errorText, bottomChatErr);
-    MRChatboxUl.append(errorMsgBox);
+      const errorText = document.createElement("p");
+      errorText.className = "incoming-msg-text";
+      errorText.innerHTML = `${apiData}<i class='incoming-msg-time'>${formatAMPM(
+        new Date()
+      )}</i>`;
 
-    feedbackInputField.removeAttribute("disabled");
-    document.getElementById("MR-userInputText").focus();
+      const bottomChatErr = document.createElement("div");
+      errorMsgBox.append(errorImg, errorText, bottomChatErr);
+      MRChatboxUl.append(errorMsgBox);
 
-    bottomChatErr.scrollIntoView({ behavior: "smooth" });
-  } finally {
-    // feedbackInputField.removeAttribute("disabled");
-    // document.getElementById("MR-userInputText").focus();
+      feedbackInputField.removeAttribute("disabled");
+      document.getElementById("MR-userInputText").focus();
+
+      bottomChatErr.scrollIntoView({ behavior: "smooth" });
+    } else {
+      feedbackInputField.removeAttribute("disabled");
+      document.getElementById("MR-userInputText").focus();
+    }
   }
 
   if (dataObject) {
     if (Object.keys(dataObject).length === 0) {
+      feedbackInputField.removeAttribute("disabled");
+      document.getElementById("MR-userInputText").focus();
       // no data
     } else if (Object.keys(dataObject)?.length) {
       const incomingMsgBox = document.createElement("div");
@@ -1869,6 +1871,10 @@ const getData = async (flag, userInputTextValue) => {
       const bottomChat1 = document.createElement("div");
       incomingMsgBox.append(essenceImg, incomingMsgText, bottomChat1);
       MRChatboxUl.append(incomingMsgBox);
+
+      feedbackInputField.removeAttribute("disabled");
+      document.getElementById("MR-userInputText").focus();
+
       bottomChat1.scrollIntoView({ behavior: "smooth" });
     }
   }
