@@ -1773,8 +1773,6 @@ const getData = async (flag, userInputTextValue) => {
 
   if (dataObject) {
     if (Object.keys(dataObject).length === 0) {
-      feedbackInputField.removeAttribute("disabled");
-      document.getElementById("MR-userInputText").focus();
       // no data
     } else if (Object.keys(dataObject)?.length) {
       const incomingMsgBox = document.createElement("div");
